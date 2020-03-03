@@ -8,11 +8,13 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
 
+  users : any;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     let resp = this.http.get("http://jsonplaceholder.typicode.com/users");
-    resp.subscribe((data)=>console.log(data));
+    resp.subscribe((data)=>this.users=data);
   }
 
 }
